@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Demo | leblebi.js</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+    <script src="./leblebi.js"></script>
+    <style>
+        .search {
+            padding: 6px 10px;
+            margin: auto;
+            margin-top: 50px;
+            display: block;
+            border: 1px solid #ccc;
+            font-size: .75em;
+        }
+    </style>
+</head>
+
+<body>
+
+    <input class="search" type="text" placeholder="Write here...">
+
+    <script>
+        var keywords = [{ tag: 'Leblebi' }, { tag: 'Çelebice' }, { tag: 'İlelebet' }, { tag: 'Kalebent' }, { tag: 'Plebisit' }];
+        leblebi({
+            target: '.search',
+            source: keywords,
+            field: 'tag'
+        });
+    </script>
+</body>
+
+</html>
