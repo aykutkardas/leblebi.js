@@ -1,3 +1,8 @@
+/*
+ * Author: Aykut Kardaş
+ * Github: github.com/aykutkardas
+ */
+
 function leblebi(data){
 
     if (data.target) {
