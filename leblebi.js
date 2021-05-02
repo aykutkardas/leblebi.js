@@ -29,21 +29,29 @@ function leblebi(data){
     leblebiResultsElem.classList.add('leblebi-results');
     document.body.appendChild(leblebiResultsElem);
 
-    // Get input position.
-    var inputPosition               = _leblebi.target.getBoundingClientRect();
-    var leblebiResultsPositionTop   = inputPosition.top + inputPosition.height + "px";
-    var leblebiResultsPositionLeft  = inputPosition.left + "px";
-    var leblebiResultsMinWidth      = inputPosition.width - 4 + "px";
-
-    // Set result element style.
+    // Set element style.
     Object.assign(leblebiResultsElem.style, {
         display: 'none',
-        position: 'absolute',
-        top: leblebiResultsPositionTop,
-        left: leblebiResultsPositionLeft,
-        minWidth: leblebiResultsMinWidth
+        position: 'absolute'
     });
 
+    function setPosition() {
+        // Get input position.
+        var inputPosition               = _leblebi.target.getBoundingClientRect();
+        var leblebiResultsMinWidth      = inputPosition.width - 4 + "px";
+        var leblebiResultsPositionTop   = inputPosition.top + inputPosition.height + "px";
+        var leblebiResultsPositionLeft  = inputPosition.left + "px";
+
+        // Set input position.
+        Object.assign(leblebiResultsElem.style, {
+            top: leblebiResultsPositionTop,
+            left: leblebiResultsPositionLeft,
+            minWidth: leblebiResultsMinWidth
+        });
+    }
+
+    setPosition()
+    window.addEventListener('resize', setPosition)
 
     function _keyupFn(e){
         
@@ -139,16 +147,11 @@ function leblebi(data){
                 break;
         }
 
-
-
-
-
     }
 
     _leblebi.target.addEventListener('keyup', function(e){
         _keyupFn(e);
     });
-
 
 }
 
